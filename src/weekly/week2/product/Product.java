@@ -2,7 +2,7 @@ package weekly.week2.product;
 
 import java.math.BigDecimal;
 
-public class Product  {
+public abstract class Product  {
 
     private final String name;
     private BigDecimal price;
