@@ -6,14 +6,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cart implements DeliveryChargeCalculator {
+public class Cart {
     private final List<Product> products = new ArrayList<>();
 
     public void addProduct(Product product) {
         products.add(product);
     }
 
-    @Override
     public BigDecimal getDeliveryCharge() {
 
         double weight = getTotalWeight();
