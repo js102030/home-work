@@ -19,18 +19,30 @@ public class Cart {
         BigDecimal price = getTotalPrice();
 
         BigDecimal charge;
+
+        charge = getBaseCharge(weight);
+        charge = getDiscountCharge(price, charge);
+
+        return charge;
+    }
+
+    private BigDecimal getDiscountCharge(BigDecimal price, BigDecimal charge) {
+        if (0 <= price.compareTo(DISCOUNT_LOWER) && price.compareTo(DISCOUNT_UPPER) < 0) {
+            charge = charge.subtract(CHARGE_DISCOUNT);
+        } else if (0 <= price.compareTo(DISCOUNT_UPPER)) {
+            charge = FREE_DELIVERY;
+        }
+        return charge;
+    }
+
+    private BigDecimal getBaseCharge(double weight) {
+        BigDecimal charge;
         if (weight < WEIGHT_3KG) {
             charge = CHARGE_UNDER_3KG;
         } else if (weight < WEIGHT_10KG) {
             charge = CHARGE_3_TO_10KG;
         } else {
             charge = CHARGE_OVER_10KG;
-        }
-
-        if (0 <= price.compareTo(DISCOUNT_LOWER) && price.compareTo(DISCOUNT_UPPER) < 0) {
-            charge = charge.subtract(CHARGE_DISCOUNT);
-        } else if (0 <= price.compareTo(DISCOUNT_UPPER)) {
-            charge = FREE_DELIVERY;
         }
         return charge;
     }
