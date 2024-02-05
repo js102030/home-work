@@ -51,6 +51,5 @@ public class Cart {
             price = price.add(promotionPrice);
         }
         return price;
-
     }
 }

@@ -1,8 +1,10 @@
 package weekly.week2.product;
+
 import java.math.BigDecimal;
+
 import static weekly.week2.config.DiscountConstants.LARGE_APPLIANCE_PROMOTION_DISCOUNT;
 
-public class LargeAppliance extends Product{
+public class LargeAppliance extends Product {
     public LargeAppliance(String name, BigDecimal price, double weight) {
         super(name, price, weight);
     }
