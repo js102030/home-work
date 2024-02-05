@@ -1,8 +1,10 @@
 package weekly.week2.product;
 
+import weekly.week2.Promotion;
+
 import java.math.BigDecimal;
 
-public abstract class Product  {
+public abstract class Product implements Promotion {
 
     private final String name;
     private BigDecimal price;

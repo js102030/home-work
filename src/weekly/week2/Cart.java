@@ -3,17 +3,15 @@ package weekly.week2;
 import weekly.week2.product.Product;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Cart {
-    private final List<Product> products = new ArrayList<>();
+    private final Product[] products;
 
-    public void addProduct(Product product) {
-        products.add(product);
+    public Cart(Product[] products) {
+        this.products = products;
     }
 
-    public BigDecimal getDeliveryCharge() {
+    public BigDecimal calculateDeliveryCharge() {
 
         double weight = getTotalWeight();
         BigDecimal price = getTotalPrice();
@@ -39,14 +37,6 @@ public class Cart {
         return charge;
     }
 
-    private BigDecimal getTotalPrice() {
-        BigDecimal price = BigDecimal.ZERO;
-        for (Product product : products) {
-            price = price.add(product.getPrice());
-        }
-        return price;
-
-    }
 
     private double getTotalWeight() {
         double weight = 0;
@@ -54,5 +44,15 @@ public class Cart {
             weight += product.getWeight();
         }
         return weight;
+    }
+
+    private BigDecimal getTotalPrice() {
+        BigDecimal price = BigDecimal.ZERO;
+        for (Product product : products) {
+            BigDecimal promotionPrice = product.getPrice().subtract(product.getDiscountAmount());
+            price = price.add(promotionPrice);
+        }
+        return price;
+
     }
 }
