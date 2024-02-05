@@ -2,7 +2,7 @@ package weekly.week2.product;
 
 import java.math.BigDecimal;
 
-import static weekly.week2.config.DiscountConstants.BEAUTY_PROMOTION_DISCOUNT;
+import static weekly.week2.config.DiscountConst.BEAUTY_PROMOTION_DISCOUNT;
 
 public class Beauty extends Product {
     public Beauty(String name, BigDecimal price, double weight) {
