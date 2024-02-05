@@ -11,6 +11,4 @@ public class LargeAppliance extends Product{
     public BigDecimal getDiscountAmount() {
         return BigDecimal.ZERO;
     }
-
-
 }
