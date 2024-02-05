@@ -18,12 +18,11 @@ public class Cart {
         double weight = getTotalWeight();
         BigDecimal price = getTotalPrice();
 
-        BigDecimal charge;
+        return getCharge(weight, price);
+    }
 
-        charge = getBaseCharge(weight);
-        charge = getDiscountCharge(price, charge);
-
-        return charge;
+    private BigDecimal getCharge(double weight, BigDecimal price) {
+        return getDiscountCharge(price, getBaseCharge(weight));
     }
 
     private BigDecimal getDiscountCharge(BigDecimal price, BigDecimal charge) {
@@ -46,7 +45,6 @@ public class Cart {
         }
         return charge;
     }
-
 
     private double getTotalWeight() {
         double weight = 0;
