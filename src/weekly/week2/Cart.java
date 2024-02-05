@@ -4,6 +4,8 @@ import weekly.week2.product.Product;
 
 import java.math.BigDecimal;
 
+import static weekly.week2.config.ShippingCalcConst.*;
+
 public class Cart {
     private final Product[] products;
 
@@ -17,22 +19,18 @@ public class Cart {
         BigDecimal price = getTotalPrice();
 
         BigDecimal charge;
-        if (weight < 3) {
-            charge = BigDecimal.valueOf(1000);
-        } else if (weight < 10) {
-            charge = BigDecimal.valueOf(5000);
+        if (weight < WEIGHT_3KG) {
+            charge = CHARGE_UNDER_3KG;
+        } else if (weight < WEIGHT_10KG) {
+            charge = CHARGE_3_TO_10KG;
         } else {
-            charge = BigDecimal.valueOf(10000);
+            charge = CHARGE_OVER_10KG;
         }
 
-        BigDecimal lower = BigDecimal.valueOf(30000);
-        BigDecimal upper = BigDecimal.valueOf(100000);
-        BigDecimal discount = BigDecimal.valueOf(1000);
-
-        if (0 <= price.compareTo(lower) && price.compareTo(upper) < 0) {
-            charge = charge.subtract(discount);
-        } else if (0 <= price.compareTo(upper)) {
-            charge = BigDecimal.ZERO;
+        if (0 <= price.compareTo(DISCOUNT_LOWER) && price.compareTo(DISCOUNT_UPPER) < 0) {
+            charge = charge.subtract(CHARGE_DISCOUNT);
+        } else if (0 <= price.compareTo(DISCOUNT_UPPER)) {
+            charge = FREE_DELIVERY;
         }
         return charge;
     }
