@@ -1,8 +1,8 @@
 package weekly.week3.contact;
 
 public abstract class Contact {
-    private String name;
-    private String phoneNumber;
+    protected String name;
+    protected String phoneNumber;
 
     public Contact(String name, String phoneNumber) {
         this.name = name;
@@ -11,9 +11,5 @@ public abstract class Contact {
 
     public String getName() {
         return name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
     }
 }

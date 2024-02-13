@@ -36,7 +36,6 @@ public class AddressBook {
                 );
 
                 int choice = sc.nextInt();
-                sc.nextLine();
 
                 switch (choice) {
                     case 1 -> addBusinessContact(sc);
@@ -71,7 +70,7 @@ public class AddressBook {
         }
     }
 
-    public void searchContact(Scanner sc) {
+    private void searchContact(Scanner sc) {
         System.out.println("검색할 이름을 입력하세요: ");
 
         String name = sc.nextLine();
@@ -109,7 +108,7 @@ public class AddressBook {
         }
     }
 
-    private static String formatPhoneNumber(String digits) {
+    private String formatPhoneNumber(String digits) {
         if (digits.length() != 11) {
             return digits;
         }

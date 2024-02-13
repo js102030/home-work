@@ -12,6 +12,6 @@ public class BusinessContact extends Contact {
     public String toString() {
         return String.format("""
                              이름: %s, 전화번호: %s, 회사명: %s
-                             """, getName(), getPhoneNumber(), company);
+                             """, name, phoneNumber, company);
     }
 }
