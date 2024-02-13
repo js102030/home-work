@@ -36,6 +36,7 @@ public class AddressBook {
                 );
 
                 int choice = sc.nextInt();
+                sc.nextLine();
 
                 switch (choice) {
                     case 1 -> addBusinessContact(sc);
