@@ -43,7 +43,7 @@ public class StringAnalysis {
         Comparator<Map.Entry<String, Integer>> comparator = Map.Entry.comparingByValue(Comparator.reverseOrder());
         List<Map.Entry<String, Integer>> sortedEntries = SortUtil.mergeSort(entries, comparator);
 
-        // topFrequencyGroupsLimit 개의 빈도수를 가진 단어를 찾아 출력.
+        // 상위 topFrequencyGroupsLimit 개의 빈도수 그룹에 속하는 모든 단어를 출력.
         int printedGroups = 0;
         Integer lastFrequency = null;
         for (Map.Entry<String, Integer> entry : sortedEntries) {
