@@ -45,16 +45,16 @@ public class StringAnalysis {
 
         // 상위 topFrequencyGroupsLimit 개의 빈도수 그룹에 속하는 모든 단어를 출력.
         int printedGroups = 0;
-        Integer lastFrequency = null;
-        for (Map.Entry<String, Integer> entry : sortedEntries) {
-            if (printedGroups >= topFrequencyGroupsLimit && !entry.getValue().equals(lastFrequency)) {
+        int lastFrequency = -1;
+        for (Map.Entry<String, Integer> e : sortedEntries) {
+            if (printedGroups >= topFrequencyGroupsLimit && lastFrequency != e.getValue()) {
                 break;
             }
-            System.out.println(entry.getKey() + " : " + entry.getValue() + "회");
-            if (lastFrequency == null || !lastFrequency.equals(entry.getValue())) {
+            System.out.println(e.getKey() + " : " + e.getValue() + "회");
+            if (lastFrequency == -1 || lastFrequency != e.getValue()) {
                 printedGroups++;
             }
-            lastFrequency = entry.getValue();
+            lastFrequency = e.getValue();
         }
     }
 }
