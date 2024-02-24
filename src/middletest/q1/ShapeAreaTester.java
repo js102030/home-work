@@ -8,7 +8,8 @@ import middletest.q1.shape.Triangle;
 
 import java.math.BigDecimal;
 
-import static middletest.q1.enumType.EShape.*;
+import static middletest.q1.enumType.EShape.TRIANGLE;
+import static middletest.q1.enumType.EShape.RECTANGLE;
 import static middletest.q1.enumType.EShape.CIRCLE;
 
 public class ShapeAreaTester {
