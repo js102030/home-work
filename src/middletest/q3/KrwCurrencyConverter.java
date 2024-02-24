@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public abstract class Currency {
+public abstract class KrwCurrencyConverter {
     private static final BigDecimal RATE_USD_KRW = new BigDecimal("1338.00");
     private static final BigDecimal RATE_JPY_KRW = new BigDecimal("9.0354");
 
