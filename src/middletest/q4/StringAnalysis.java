@@ -47,14 +47,20 @@ public class StringAnalysis {
         int printedGroups = 0;
         int lastFrequency = -1;
         for (Map.Entry<String, Integer> e : sortedEntries) {
-            if (printedGroups >= topFrequencyGroupsLimit && lastFrequency != e.getValue()) {
+
+            int currentFrequency = e.getValue();
+
+            if (printedGroups >= topFrequencyGroupsLimit && lastFrequency != currentFrequency) {
                 break;
             }
-            System.out.println(e.getKey() + " : " + e.getValue() + "회");
-            if (lastFrequency == -1 || lastFrequency != e.getValue()) {
+
+            System.out.println(e.getKey() + " : " + currentFrequency + "회");
+
+            if (lastFrequency == -1 || lastFrequency != currentFrequency) {
                 printedGroups++;
             }
-            lastFrequency = e.getValue();
+
+            lastFrequency = currentFrequency;
         }
     }
 }
