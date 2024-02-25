@@ -25,16 +25,23 @@ public class SortUtil {
 
     private static <T> List<T> merge(List<T> left, List<T> right, Comparator<T> comparator) {
         List<T> merged = new ArrayList<>();
-        while (!left.isEmpty() && !right.isEmpty()) {
-            if (comparator.compare(left.get(0), right.get(0)) <= 0) {
-                merged.add(left.remove(0));
+        int leftIndex = 0, rightIndex = 0;
+
+        while (leftIndex < left.size() && rightIndex < right.size()) {
+            if (comparator.compare(left.get(leftIndex), right.get(rightIndex)) <= 0) {
+                merged.add(left.get(leftIndex++));
             } else {
-                merged.add(right.remove(0));
+                merged.add(right.get(rightIndex++));
             }
         }
 
-        merged.addAll(left);
-        merged.addAll(right);
+        while (leftIndex < left.size()) {
+            merged.add(left.get(leftIndex++));
+        }
+
+        while (rightIndex < right.size()) {
+            merged.add(right.get(rightIndex++));
+        }
 
         return merged;
     }
