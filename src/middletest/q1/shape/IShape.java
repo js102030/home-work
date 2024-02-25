@@ -2,6 +2,6 @@ package middletest.q1.shape;
 
 import java.math.BigDecimal;
 
-public interface Shape {
+public interface IShape {
     BigDecimal getArea();
 }

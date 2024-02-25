@@ -3,7 +3,7 @@ package middletest.q1.shape;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Circle implements Shape {
+public class Circle implements IShape {
     private final BigDecimal radius;
 
     public Circle(BigDecimal radius) {

@@ -3,7 +3,7 @@ package middletest.q1;
 import middletest.q1.enumType.EShape;
 import middletest.q1.shape.Circle;
 import middletest.q1.shape.Rectangle;
-import middletest.q1.shape.Shape;
+import middletest.q1.shape.IShape;
 import middletest.q1.shape.Triangle;
 
 import java.math.BigDecimal;
@@ -12,7 +12,7 @@ import static middletest.q1.enumType.EShape.TRIANGLE;
 import static middletest.q1.enumType.EShape.RECTANGLE;
 import static middletest.q1.enumType.EShape.CIRCLE;
 
-public class ShapeAreaTester {
+public class Main {
     public static void main(String[] args) {
 
         System.out.println("\n================\n");
@@ -46,7 +46,7 @@ public class ShapeAreaTester {
     }
 
     private static void printShapeArea(EShape shapeType, BigDecimal... dimensions) {
-        Shape shape = createShape(shapeType, dimensions);
+        IShape shape = createShape(shapeType, dimensions);
         System.out.println(shapeType + ": " + shape.getArea());
     }
 
@@ -60,7 +60,7 @@ public class ShapeAreaTester {
         }
     }
 
-    private static Shape createShape(EShape shapeType, BigDecimal... dimensions) {
+    private static IShape createShape(EShape shapeType, BigDecimal... dimensions) {
         return switch (shapeType) {
             case TRIANGLE -> new Triangle(dimensions[0], dimensions[1]);
             case RECTANGLE -> new Rectangle(dimensions[0], dimensions[1]);

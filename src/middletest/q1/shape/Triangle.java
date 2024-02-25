@@ -3,7 +3,7 @@ package middletest.q1.shape;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Triangle implements Shape {
+public class Triangle implements IShape {
     private final BigDecimal base;
     private final BigDecimal height;
 
@@ -13,7 +13,6 @@ public class Triangle implements Shape {
         this.base = base;
         this.height = height;
     }
-
 
     private void validateDimension(BigDecimal dimension) {
         if (dimension.compareTo(BigDecimal.ZERO) <= 0) {

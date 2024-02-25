@@ -6,6 +6,8 @@ import java.util.List;
 
 public class SortUtil {
 
+    private SortUtil() {}
+
     public static <T> List<T> mergeSort(List<T> list, Comparator<T> comparator) {
         if (list.size() <= 1) {
             return list;
